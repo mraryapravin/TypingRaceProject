@@ -90,4 +90,34 @@ public class TypingRace
         winner = null;
     }
 
+    private boolean advanceTypist(Typist theTypist)
+    {
+        boolean mistyped = false;
+
+        if (theTypist.isBurntOut())
+        {
+            theTypist.recoverFromBurnout();
+            return false;
+        }
+
+        if (Math.random() < theTypist.getAccuracy())
+        {
+            theTypist.typeCharacter();
+        }
+
+        if (Math.random() < (1.0 - theTypist.getAccuracy()) * MISTYPE_BASE_CHANCE)
+        {
+            theTypist.slideBack(SLIDE_BACK_AMOUNT);
+            mistyped = true;
+        }
+
+        if (Math.random() < 0.05 * theTypist.getAccuracy() * theTypist.getAccuracy())
+        {
+            theTypist.burnOut(BURNOUT_DURATION);
+            theTypist.setAccuracy(theTypist.getAccuracy() - BURNOUT_ACCURACY_PENALTY);
+        }
+
+        return mistyped;
+    }
+
 }
