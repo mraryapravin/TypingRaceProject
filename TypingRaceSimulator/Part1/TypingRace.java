@@ -1,5 +1,8 @@
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Textual typing race simulation for Part I.
+ */
 public class TypingRace
 {
     private int passageLength;
@@ -19,4 +22,45 @@ public class TypingRace
     private static final double WINNER_ACCURACY_BONUS = 0.02;
     private static final double BURNOUT_ACCURACY_PENALTY = 0.01;
     private static final int DELAY_MILLISECONDS = 120;
-}
+
+    public TypingRace(int passageLength)
+    {
+        if (passageLength < 1)
+        {
+            this.passageLength = 1;
+        }
+        else
+        {
+            this.passageLength = passageLength;
+        }
+        seat1Typist = null;
+        seat2Typist = null;
+        seat3Typist = null;
+        winner = null;
+    }
+
+    public void addTypist(Typist theTypist, int seatNumber)
+    {
+        if (theTypist == null)
+        {
+            System.out.println("Cannot add a null typist.");
+            return;
+        }
+
+        if (seatNumber == 1)
+        {
+            seat1Typist = theTypist;
+        }
+        else if (seatNumber == 2)
+        {
+            seat2Typist = theTypist;
+        }
+        else if (seatNumber == 3)
+        {
+            seat3Typist = theTypist;
+        }
+        else
+        {
+            System.out.println("Cannot seat typist at seat " + seatNumber + " - there is no such seat.");
+        }
+    }}
