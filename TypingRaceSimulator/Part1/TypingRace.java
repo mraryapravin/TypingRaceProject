@@ -63,4 +63,31 @@ public class TypingRace
         {
             System.out.println("Cannot seat typist at seat " + seatNumber + " - there is no such seat.");
         }
-    }}
+    }
+
+    private void validateRaceCanStart()
+    {
+        if (seat1Typist == null || seat2Typist == null || seat3Typist == null)
+        {
+            throw new IllegalStateException("All three seats must contain a typist before the race starts.");
+        }
+        if (seat1Typist.getSymbol() == seat2Typist.getSymbol()
+                || seat1Typist.getSymbol() == seat3Typist.getSymbol()
+                || seat2Typist.getSymbol() == seat3Typist.getSymbol())
+        {
+            throw new IllegalStateException("Each typist must have a different symbol.");
+        }
+    }
+
+    private void resetRace()
+    {
+        seat1Typist.resetToStart();
+        seat2Typist.resetToStart();
+        seat3Typist.resetToStart();
+        seat1Mistyped = false;
+        seat2Mistyped = false;
+        seat3Mistyped = false;
+        winner = null;
+    }
+
+}
