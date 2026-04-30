@@ -120,4 +120,26 @@ public class TypingRace
         return mistyped;
     }
 
+
+    private Typist findWinner()
+    {
+        if (raceFinishedBy(seat1Typist))
+        {
+            return seat1Typist;
+        }
+        if (raceFinishedBy(seat2Typist))
+        {
+            return seat2Typist;
+        }
+        if (raceFinishedBy(seat3Typist))
+        {
+            return seat3Typist;
+        }
+        return null;
+    }
+
+    private boolean raceFinishedBy(Typist theTypist)
+    {
+        return theTypist != null && theTypist.getProgress() >= passageLength;
+    }
 }
