@@ -65,6 +65,42 @@ public class TypingRace
         }
     }
 
+    public void startRace()
+    {
+        validateRaceCanStart();
+        resetRace();
+
+        boolean finished = false;
+        while (!finished)
+        {
+            seat1Mistyped = advanceTypist(seat1Typist);
+            seat2Mistyped = advanceTypist(seat2Typist);
+            seat3Mistyped = advanceTypist(seat3Typist);
+
+            printRace();
+            winner = findWinner();
+            finished = winner != null;
+
+            try
+            {
+                TimeUnit.MILLISECONDS.sleep(DELAY_MILLISECONDS);
+            }
+            catch (InterruptedException e)
+            {
+                Thread.currentThread().interrupt();
+                finished = true;
+            }
+        }
+
+        if (winner != null)
+        {
+            winnerStartingAccuracy = winner.getAccuracy();
+            winner.setAccuracy(winner.getAccuracy() + WINNER_ACCURACY_BONUS);
+            winnerFinalAccuracy = winner.getAccuracy();
+            printWinner();
+        }
+    }
+
     private void validateRaceCanStart()
     {
         if (seat1Typist == null || seat2Typist == null || seat3Typist == null)
@@ -119,7 +155,6 @@ public class TypingRace
 
         return mistyped;
     }
-
 
     private Typist findWinner()
     {
@@ -209,6 +244,13 @@ public class TypingRace
         }
     }
 
+    private void printWinner()
+    {
+        System.out.println();
+        System.out.println("And the winner is... " + winner.getName() + "!");
+        System.out.printf("Final accuracy: %.2f (improved from %.2f)%n", winnerFinalAccuracy, winnerStartingAccuracy);
+    }
+
     private void multiplePrint(char aChar, int times)
     {
         int i = 0;
@@ -219,49 +261,6 @@ public class TypingRace
         }
     }
 
-    public void startRace()
-    {
-        validateRaceCanStart();
-        resetRace();
-
-        boolean finished = false;
-        while (!finished)
-        {
-            seat1Mistyped = advanceTypist(seat1Typist);
-            seat2Mistyped = advanceTypist(seat2Typist);
-            seat3Mistyped = advanceTypist(seat3Typist);
-
-            printRace();
-            winner = findWinner();
-            finished = winner != null;
-
-            try
-            {
-                TimeUnit.MILLISECONDS.sleep(DELAY_MILLISECONDS);
-            }
-            catch (InterruptedException e)
-            {
-                Thread.currentThread().interrupt();
-                finished = true;
-            }
-        }
-
-        if (winner != null)
-        {
-            winnerStartingAccuracy = winner.getAccuracy();
-            winner.setAccuracy(winner.getAccuracy() + WINNER_ACCURACY_BONUS);
-            winnerFinalAccuracy = winner.getAccuracy();
-            printWinner();
-        }
-    }
-
-    private void printWinner()
-    {
-        System.out.println();
-        System.out.println("And the winner is... " + winner.getName() + "!");
-        System.out.printf("Final accuracy: %.2f (improved from %.2f)%n", winnerFinalAccuracy, winnerStartingAccuracy);
-    }
-
     public static void main(String[] args)
     {
         TypingRace race = new TypingRace(40);
@@ -270,6 +269,4 @@ public class TypingRace
         race.addTypist(new Typist('3', "HUNT_N_PECK", 0.30), 3);
         race.startRace();
     }
-
-
 }
