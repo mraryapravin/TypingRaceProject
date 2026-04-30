@@ -142,4 +142,84 @@ public class TypingRace
     {
         return theTypist != null && theTypist.getProgress() >= passageLength;
     }
+
+    private void printRace()
+    {
+        System.out.print("\f");
+        System.out.println("  TYPING RACE - passage length: " + passageLength + " chars");
+        multiplePrint('=', passageLength + 3);
+        System.out.println();
+        printSeat(seat1Typist, seat1Mistyped);
+        System.out.println();
+        printSeat(seat2Typist, seat2Mistyped);
+        System.out.println();
+        printSeat(seat3Typist, seat3Mistyped);
+        System.out.println();
+        multiplePrint('=', passageLength + 3);
+        System.out.println();
+        System.out.println("  [~] = burnt out    [<] = just mistyped");
+    }
+
+    private void printSeat(Typist theTypist, boolean justMistyped)
+    {
+        int displayProgress = theTypist.getProgress();
+        if (displayProgress > passageLength)
+        {
+            displayProgress = passageLength;
+        }
+
+        int markerWidth = 1;
+        if (theTypist.isBurntOut())
+        {
+            markerWidth = markerWidth + 1;
+        }
+        if (justMistyped)
+        {
+            markerWidth = markerWidth + 3;
+        }
+
+        int spacesBefore = displayProgress;
+        int spacesAfter = passageLength - displayProgress - markerWidth + 1;
+        if (spacesAfter < 0)
+        {
+            spacesAfter = 0;
+        }
+
+        System.out.print('|');
+        multiplePrint(' ', spacesBefore);
+        System.out.print(theTypist.getSymbol());
+        if (theTypist.isBurntOut())
+        {
+            System.out.print('~');
+        }
+        if (justMistyped)
+        {
+            System.out.print("[<]");
+        }
+        multiplePrint(' ', spacesAfter);
+        System.out.print("| ");
+        System.out.printf("%s (Accuracy: %.2f)", theTypist.getName(), theTypist.getAccuracy());
+        if (theTypist.isBurntOut())
+        {
+            System.out.print(" BURNT OUT (" + theTypist.getBurnoutTurnsRemaining() + " turns)");
+        }
+        if (justMistyped)
+        {
+            System.out.print(" <- just mistyped");
+        }
+    }
+
+    private void multiplePrint(char aChar, int times)
+    {
+        int i = 0;
+        while (i < times)
+        {
+            System.out.print(aChar);
+            i = i + 1;
+        }
+    }
+
+
+
+
 }
