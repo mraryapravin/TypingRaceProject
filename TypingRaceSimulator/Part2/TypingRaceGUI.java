@@ -182,4 +182,43 @@ public class TypingRaceGUI extends JFrame
         }
         return panel;
     }
+
+        private void startConfiguredRace()
+    {
+        if (timer != null)
+        {
+            timer.stop();
+        }
+        typists.clear();
+        progressBars.clear();
+        passageLabels.clear();
+        racePanel.removeAll();
+        turn = 0;
+        raceRunning = true;
+        passage = selectedPassage();
+        int seats = seatCountSlider.getValue();
+
+        for (int i = 0; i < seats; i++)
+        {
+            GuiTypist typist = createTypist(i);
+            typists.add(typist);
+            racePanel.add(createLane(typist));
+        }
+        racePanel.revalidate();
+        racePanel.repaint();
+        updateAnalyticsText("Race started. Attribute impacts are applied from style, keyboard, accessory and global modifiers.");
+
+        timer = new Timer(180, (ActionEvent e) -> runTurn());
+        timer.start();
+    }
+
+    private String selectedPassage()
+    {
+        String choice = (String) passageChoice.getSelectedItem();
+        if ("Short".equals(choice)) return SHORT_PASSAGE;
+        if ("Medium".equals(choice)) return MEDIUM_PASSAGE;
+        if ("Long".equals(choice)) return LONG_PASSAGE;
+        if (customPassage.getText().trim().length() == 0) return SHORT_PASSAGE;
+        return customPassage.getText().trim();
+    }
 }
