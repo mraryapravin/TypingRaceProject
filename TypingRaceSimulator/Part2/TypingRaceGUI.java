@@ -221,4 +221,59 @@ public class TypingRaceGUI extends JFrame
         if (customPassage.getText().trim().length() == 0) return SHORT_PASSAGE;
         return customPassage.getText().trim();
     }
+
+        private GuiTypist createTypist(int index)
+    {
+        GuiTypist t = new GuiTypist();
+        t.name = nameFields[index].getText().trim();
+        if (t.name.length() == 0) t.name = "Typist_" + (index + 1);
+        String symbol = symbolFields[index].getText();
+        t.symbol = symbol.length() == 0 ? ("" + (index + 1)) : symbol.substring(0, 1);
+        t.colour = colourFor((String) colourBoxes[index].getSelectedItem());
+        t.style = (String) styleBoxes[index].getSelectedItem();
+        t.keyboard = (String) keyboardBoxes[index].getSelectedItem();
+        t.accessory = (String) accessoryBoxes[index].getSelectedItem();
+        t.accuracy = 0.62;
+        t.speed = 1;
+        t.burnoutRisk = 0.025;
+        applyStyle(t);
+        applyKeyboard(t);
+        applyAccessory(t);
+        if (nightShiftBox.isSelected()) t.accuracy -= 0.08;
+        t.clampAccuracy();
+        return t;
+    }
+
+    private void applyStyle(GuiTypist t)
+    {
+        if ("Touch Typist".equals(t.style)) { t.accuracy += 0.18; t.speed += 1; t.burnoutRisk += 0.020; }
+        else if ("Hunt & Peck".equals(t.style)) { t.accuracy -= 0.10; t.burnoutRisk -= 0.010; }
+        else if ("Phone Thumbs".equals(t.style)) { t.accuracy -= 0.04; t.speed += 1; t.burnoutRisk += 0.005; }
+        else if ("Voice-to-Text".equals(t.style)) { t.accuracy += 0.08; t.speed += 2; t.burnoutRisk += 0.030; }
+    }
+
+    private void applyKeyboard(GuiTypist t)
+    {
+        if ("Mechanical".equals(t.keyboard)) { t.accuracy += 0.06; t.speed += 1; }
+        else if ("Membrane".equals(t.keyboard)) { t.accuracy -= 0.01; }
+        else if ("Touchscreen".equals(t.keyboard)) { t.accuracy -= 0.05; t.burnoutRisk -= 0.005; }
+        else if ("Stenography".equals(t.keyboard)) { t.accuracy += 0.10; t.speed += 2; t.burnoutRisk += 0.025; }
+    }
+
+    private void applyAccessory(GuiTypist t)
+    {
+        if ("Wrist Support".equals(t.accessory)) t.burnoutDuration = 2;
+        else if ("Energy Drink".equals(t.accessory)) { t.energyDrink = true; t.burnoutRisk += 0.015; }
+        else if ("Noise-Cancelling Headphones".equals(t.accessory)) t.mistypeReduction = 0.08;
+    }
+
+    private Color colourFor(String name)
+    {
+        if ("Green".equals(name)) return Color.GREEN.darker();
+        if ("Orange".equals(name)) return Color.ORANGE.darker();
+        if ("Red".equals(name)) return Color.RED.darker();
+        if ("Purple".equals(name)) return new Color(128, 0, 128);
+        if ("Black".equals(name)) return Color.BLACK;
+        return Color.BLUE;
+    }
 }
