@@ -72,4 +72,39 @@ public class TypingRaceGUI extends JFrame
         setLocationRelativeTo(null);
         setVisible(true);
     }
+
+    private void buildInterface()
+    {
+        setLayout(new BorderLayout(8, 8));
+        add(buildConfigurationPanel(), BorderLayout.WEST);
+        add(buildRacePanel(), BorderLayout.CENTER);
+        add(buildResultsPanel(), BorderLayout.EAST);
+    }
+
+    private JPanel buildRacePanel()
+    {
+        racePanel = new JPanel(new GridLayout(6, 1, 6, 6));
+        racePanel.setBorder(BorderFactory.createTitledBorder("Live race"));
+        return racePanel;
+    }
+
+    private JPanel buildResultsPanel()
+    {
+        JPanel panel = new JPanel(new GridLayout(3, 1, 6, 6));
+        statsArea = makeArea("Statistics and analytics");
+        leaderboardArea = makeArea("Leaderboard and badges");
+        comparisonArea = makeArea("Comparison view");
+        panel.add(new JScrollPane(statsArea));
+        panel.add(new JScrollPane(leaderboardArea));
+        panel.add(new JScrollPane(comparisonArea));
+        return panel;
+    }
+
+    private JTextArea makeArea(String title)
+    {
+        JTextArea area = new JTextArea();
+        area.setBorder(BorderFactory.createTitledBorder(title));
+        area.setEditable(false);
+        return area;
+    }
 }
