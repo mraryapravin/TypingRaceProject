@@ -107,4 +107,40 @@ public class TypingRaceGUI extends JFrame
         area.setEditable(false);
         return area;
     }
+
+    private JPanel buildConfigurationPanel()
+    {
+        JPanel panel = new JPanel(new BorderLayout(6, 6));
+        panel.setBorder(BorderFactory.createTitledBorder("Race configuration"));
+
+        JPanel top = new JPanel(new GridLayout(0, 1, 4, 4));
+        passageChoice = new JComboBox<String>(new String[] {"Short", "Medium", "Long", "Custom"});
+        customPassage = new JTextArea(3, 18);
+        customPassage.setLineWrap(true);
+        customPassage.setText("Custom typing passages can be entered here.");
+        seatCountSlider = new JSlider(2, 6, 3);
+        seatCountSlider.setMajorTickSpacing(1);
+        seatCountSlider.setPaintLabels(true);
+        seatCountSlider.setPaintTicks(true);
+        autocorrectBox = new JCheckBox("Autocorrect: halves slide back");
+        caffeineBox = new JCheckBox("Caffeine: early boost, later burnout risk");
+        nightShiftBox = new JCheckBox("Night Shift: reduces accuracy");
+
+        top.add(new JLabel("Passage"));
+        top.add(passageChoice);
+        top.add(new JScrollPane(customPassage));
+        top.add(new JLabel("Typists: 2-6"));
+        top.add(seatCountSlider);
+        top.add(autocorrectBox);
+        top.add(caffeineBox);
+        top.add(nightShiftBox);
+
+        panel.add(top, BorderLayout.NORTH);
+        panel.add(buildTypistOptions(), BorderLayout.CENTER);
+
+        JButton start = new JButton("Start Race");
+        start.addActionListener((ActionEvent e) -> startConfiguredRace());
+        panel.add(start, BorderLayout.SOUTH);
+        return panel;
+    }
 }
