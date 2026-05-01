@@ -1,0 +1,405 @@
+PS C:\Users\aryap\Downloads\TypingRaceSim>  & 'C:\Program Files\Java\jdk-25\bin\java.exe' '-XX:+ShowCodeDetailsInExceptionMessages' '-cp' 'C:\Users\aryap\AppData\Roaming\Code\User\workspaceStorage\66526684d452acd629c009f3defeced9\redhat.java\jdt_ws\TypingRaceSim_bf65f754\bin' 'TypingRace' 
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|1[<]                                     | TURBOFINGERS (Accuracy: 0.85) <- just mistyped
+| 2                                       | QWERTY_QUEEN (Accuracy: 0.60)
+| 3                                       | HUNT_N_PECK (Accuracy: 0.30)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+| 1                                       | TURBOFINGERS (Accuracy: 0.85)
+|  2                                      | QWERTY_QUEEN (Accuracy: 0.60)
+| 3                                       | HUNT_N_PECK (Accuracy: 0.30)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|  1                                      | TURBOFINGERS (Accuracy: 0.85)
+| 2[<]                                    | QWERTY_QUEEN (Accuracy: 0.60) <- just mistyped
+| 3                                       | HUNT_N_PECK (Accuracy: 0.30)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+| 1[<]                                    | TURBOFINGERS (Accuracy: 0.85) <- just mistyped
+| 2                                       | QWERTY_QUEEN (Accuracy: 0.60)
+| 3                                       | HUNT_N_PECK (Accuracy: 0.30)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|  1                                      | TURBOFINGERS (Accuracy: 0.85)
+| 2                                       | QWERTY_QUEEN (Accuracy: 0.60)
+|  3                                      | HUNT_N_PECK (Accuracy: 0.30)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|   1                                     | TURBOFINGERS (Accuracy: 0.85)
+|  2                                      | QWERTY_QUEEN (Accuracy: 0.60)
+|  3                                      | HUNT_N_PECK (Accuracy: 0.30)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|    1                                    | TURBOFINGERS (Accuracy: 0.85)
+|   2                                     | QWERTY_QUEEN (Accuracy: 0.60)
+|   3                                     | HUNT_N_PECK (Accuracy: 0.30)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|     1                                   | TURBOFINGERS (Accuracy: 0.85)
+|   2                                     | QWERTY_QUEEN (Accuracy: 0.60)
+|   3                                     | HUNT_N_PECK (Accuracy: 0.30)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|      1                                  | TURBOFINGERS (Accuracy: 0.85)
+|    2                                    | QWERTY_QUEEN (Accuracy: 0.60)
+|   3                                     | HUNT_N_PECK (Accuracy: 0.30)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|       1                                 | TURBOFINGERS (Accuracy: 0.85)
+|     2                                   | QWERTY_QUEEN (Accuracy: 0.60)
+|  3[<]                                   | HUNT_N_PECK (Accuracy: 0.30) <- just mistyped
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|        1                                | TURBOFINGERS (Accuracy: 0.85)
+|      2                                  | QWERTY_QUEEN (Accuracy: 0.60)
+|   3                                     | HUNT_N_PECK (Accuracy: 0.30)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|         1                               | TURBOFINGERS (Accuracy: 0.85)
+|      2                                  | QWERTY_QUEEN (Accuracy: 0.60)
+|   3                                     | HUNT_N_PECK (Accuracy: 0.30)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|          1                              | TURBOFINGERS (Accuracy: 0.85)
+|       2                                 | QWERTY_QUEEN (Accuracy: 0.60)
+|  3[<]                                   | HUNT_N_PECK (Accuracy: 0.30) <- just mistyped
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|           1                             | TURBOFINGERS (Accuracy: 0.85)
+|        2                                | QWERTY_QUEEN (Accuracy: 0.60)
+|  3                                      | HUNT_N_PECK (Accuracy: 0.30)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|            1                            | TURBOFINGERS (Accuracy: 0.85)
+|        2                                | QWERTY_QUEEN (Accuracy: 0.60)
+|  3                                      | HUNT_N_PECK (Accuracy: 0.30)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|             1                           | TURBOFINGERS (Accuracy: 0.85)
+|         2                               | QWERTY_QUEEN (Accuracy: 0.60)
+|  3~                                     | HUNT_N_PECK (Accuracy: 0.29) BURNT OUT (3 turns)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|              1                          | TURBOFINGERS (Accuracy: 0.85)
+|        2[<]                             | QWERTY_QUEEN (Accuracy: 0.60) <- just mistyped
+|  3~                                     | HUNT_N_PECK (Accuracy: 0.29) BURNT OUT (2 turns)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|               1                         | TURBOFINGERS (Accuracy: 0.85)
+|         2                               | QWERTY_QUEEN (Accuracy: 0.60)
+|  3~                                     | HUNT_N_PECK (Accuracy: 0.29) BURNT OUT (1 turns)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                1                        | TURBOFINGERS (Accuracy: 0.85)
+|         2                               | QWERTY_QUEEN (Accuracy: 0.60)
+|  3                                      | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                 1                       | TURBOFINGERS (Accuracy: 0.85)
+|        2[<]                             | QWERTY_QUEEN (Accuracy: 0.60) <- just mistyped
+|3[<]                                     | HUNT_N_PECK (Accuracy: 0.29) <- just mistyped
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                  1                      | TURBOFINGERS (Accuracy: 0.85)
+|       2[<]                              | QWERTY_QUEEN (Accuracy: 0.60) <- just mistyped
+|3                                        | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                   1                     | TURBOFINGERS (Accuracy: 0.85)
+|        2                                | QWERTY_QUEEN (Accuracy: 0.60)
+| 3                                       | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                    1                    | TURBOFINGERS (Accuracy: 0.85)
+|        2                                | QWERTY_QUEEN (Accuracy: 0.60)
+| 3                                       | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                     1                   | TURBOFINGERS (Accuracy: 0.85)
+|        2                                | QWERTY_QUEEN (Accuracy: 0.60)
+| 3                                       | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                      1                  | TURBOFINGERS (Accuracy: 0.85)
+|         2                               | QWERTY_QUEEN (Accuracy: 0.60)
+| 3                                       | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                       1                 | TURBOFINGERS (Accuracy: 0.85)
+|          2                              | QWERTY_QUEEN (Accuracy: 0.60)
+| 3                                       | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                       1                 | TURBOFINGERS (Accuracy: 0.85)
+|          2                              | QWERTY_QUEEN (Accuracy: 0.60)
+| 3                                       | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                        1                | TURBOFINGERS (Accuracy: 0.85)
+|           2                             | QWERTY_QUEEN (Accuracy: 0.60)
+| 3                                       | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                         1               | TURBOFINGERS (Accuracy: 0.85)
+|            2                            | QWERTY_QUEEN (Accuracy: 0.60)
+|  3                                      | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                          1              | TURBOFINGERS (Accuracy: 0.85)
+|             2                           | QWERTY_QUEEN (Accuracy: 0.60)
+|  3                                      | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                           1             | TURBOFINGERS (Accuracy: 0.85)
+|              2                          | QWERTY_QUEEN (Accuracy: 0.60)
+| 3[<]                                    | HUNT_N_PECK (Accuracy: 0.29) <- just mistyped
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                            1            | TURBOFINGERS (Accuracy: 0.85)
+|               2                         | QWERTY_QUEEN (Accuracy: 0.60)
+| 3                                       | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                           1[<]          | TURBOFINGERS (Accuracy: 0.85) <- just mistyped
+|               2                         | QWERTY_QUEEN (Accuracy: 0.60)
+|3[<]                                     | HUNT_N_PECK (Accuracy: 0.29) <- just mistyped
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                            1~           | TURBOFINGERS (Accuracy: 0.84) BURNT OUT (3 turns)
+|                2                        | QWERTY_QUEEN (Accuracy: 0.60)
+| 3                                       | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                            1~           | TURBOFINGERS (Accuracy: 0.84) BURNT OUT (2 turns)
+|                2                        | QWERTY_QUEEN (Accuracy: 0.60)
+|  3                                      | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                            1~           | TURBOFINGERS (Accuracy: 0.84) BURNT OUT (1 turns)
+|               2[<]                      | QWERTY_QUEEN (Accuracy: 0.60) <- just mistyped
+|  3                                      | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                            1            | TURBOFINGERS (Accuracy: 0.84)
+|              2[<]                       | QWERTY_QUEEN (Accuracy: 0.60) <- just mistyped
+|  3                                      | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                             1           | TURBOFINGERS (Accuracy: 0.84)
+|              2                          | QWERTY_QUEEN (Accuracy: 0.60)
+| 3[<]                                    | HUNT_N_PECK (Accuracy: 0.29) <- just mistyped
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                             1           | TURBOFINGERS (Accuracy: 0.84)
+|               2                         | QWERTY_QUEEN (Accuracy: 0.60)
+|3[<]                                     | HUNT_N_PECK (Accuracy: 0.29) <- just mistyped
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                              1          | TURBOFINGERS (Accuracy: 0.84)
+|             2[<]                        | QWERTY_QUEEN (Accuracy: 0.60) <- just mistyped
+|3                                        | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                               1         | TURBOFINGERS (Accuracy: 0.84)
+|              2                          | QWERTY_QUEEN (Accuracy: 0.60)
+| 3                                       | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                                1        | TURBOFINGERS (Accuracy: 0.84)
+|               2                         | QWERTY_QUEEN (Accuracy: 0.60)
+|3[<]                                     | HUNT_N_PECK (Accuracy: 0.29) <- just mistyped
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                                 1       | TURBOFINGERS (Accuracy: 0.84)
+|               2                         | QWERTY_QUEEN (Accuracy: 0.60)
+|3                                        | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                                  1      | TURBOFINGERS (Accuracy: 0.84)
+|                2                        | QWERTY_QUEEN (Accuracy: 0.60)
+|3                                        | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                                   1     | TURBOFINGERS (Accuracy: 0.84)
+|              2[<]                       | QWERTY_QUEEN (Accuracy: 0.60) <- just mistyped
+|3                                        | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                                    1    | TURBOFINGERS (Accuracy: 0.84)
+|               2                         | QWERTY_QUEEN (Accuracy: 0.60)
+|3                                        | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                                     1   | TURBOFINGERS (Accuracy: 0.84)
+|                2                        | QWERTY_QUEEN (Accuracy: 0.60)
+|3[<]                                     | HUNT_N_PECK (Accuracy: 0.29) <- just mistyped
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                                      1  | TURBOFINGERS (Accuracy: 0.84)
+|                 2~                      | QWERTY_QUEEN (Accuracy: 0.59) BURNT OUT (3 turns)
+| 3                                       | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                                       1 | TURBOFINGERS (Accuracy: 0.84)
+|                 2~                      | QWERTY_QUEEN (Accuracy: 0.59) BURNT OUT (2 turns)
+|  3                                      | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+  TYPING RACE - passage length: 40 chars
+===========================================
+|                                        1| TURBOFINGERS (Accuracy: 0.84)
+|                 2~                      | QWERTY_QUEEN (Accuracy: 0.59) BURNT OUT (1 turns)
+|  3                                      | HUNT_N_PECK (Accuracy: 0.29)
+===========================================
+  [~] = burnt out    [<] = just mistyped
+
+And the winner is... TURBOFINGERS!
+Final accuracy: 0.86 (improved from 0.84)
+PS C:\Users\aryap\Downloads\TypingRaceSim> 
