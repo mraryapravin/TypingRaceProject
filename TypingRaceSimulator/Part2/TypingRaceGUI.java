@@ -1,3 +1,4 @@
+package TypingRaceSimulator.Part2;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -81,33 +82,6 @@ public class TypingRaceGUI extends JFrame
         add(buildResultsPanel(), BorderLayout.EAST);
     }
 
-    private JPanel buildRacePanel()
-    {
-        racePanel = new JPanel(new GridLayout(6, 1, 6, 6));
-        racePanel.setBorder(BorderFactory.createTitledBorder("Live race"));
-        return racePanel;
-    }
-
-    private JPanel buildResultsPanel()
-    {
-        JPanel panel = new JPanel(new GridLayout(3, 1, 6, 6));
-        statsArea = makeArea("Statistics and analytics");
-        leaderboardArea = makeArea("Leaderboard and badges");
-        comparisonArea = makeArea("Comparison view");
-        panel.add(new JScrollPane(statsArea));
-        panel.add(new JScrollPane(leaderboardArea));
-        panel.add(new JScrollPane(comparisonArea));
-        return panel;
-    }
-
-    private JTextArea makeArea(String title)
-    {
-        JTextArea area = new JTextArea();
-        area.setBorder(BorderFactory.createTitledBorder(title));
-        area.setEditable(false);
-        return area;
-    }
-
     private JPanel buildConfigurationPanel()
     {
         JPanel panel = new JPanel(new BorderLayout(6, 6));
@@ -144,7 +118,7 @@ public class TypingRaceGUI extends JFrame
         return panel;
     }
 
-        @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     private JPanel buildTypistOptions()
     {
         JPanel panel = new JPanel(new GridLayout(6, 1, 4, 4));
@@ -183,7 +157,34 @@ public class TypingRaceGUI extends JFrame
         return panel;
     }
 
-        private void startConfiguredRace()
+    private JPanel buildRacePanel()
+    {
+        racePanel = new JPanel(new GridLayout(6, 1, 6, 6));
+        racePanel.setBorder(BorderFactory.createTitledBorder("Live race"));
+        return racePanel;
+    }
+
+    private JPanel buildResultsPanel()
+    {
+        JPanel panel = new JPanel(new GridLayout(3, 1, 6, 6));
+        statsArea = makeArea("Statistics and analytics");
+        leaderboardArea = makeArea("Leaderboard and badges");
+        comparisonArea = makeArea("Comparison view");
+        panel.add(new JScrollPane(statsArea));
+        panel.add(new JScrollPane(leaderboardArea));
+        panel.add(new JScrollPane(comparisonArea));
+        return panel;
+    }
+
+    private JTextArea makeArea(String title)
+    {
+        JTextArea area = new JTextArea();
+        area.setBorder(BorderFactory.createTitledBorder(title));
+        area.setEditable(false);
+        return area;
+    }
+
+    private void startConfiguredRace()
     {
         if (timer != null)
         {
@@ -222,7 +223,7 @@ public class TypingRaceGUI extends JFrame
         return customPassage.getText().trim();
     }
 
-        private GuiTypist createTypist(int index)
+    private GuiTypist createTypist(int index)
     {
         GuiTypist t = new GuiTypist();
         t.name = nameFields[index].getText().trim();
@@ -267,16 +268,6 @@ public class TypingRaceGUI extends JFrame
         else if ("Noise-Cancelling Headphones".equals(t.accessory)) t.mistypeReduction = 0.08;
     }
 
-    private Color colourFor(String name)
-    {
-        if ("Green".equals(name)) return Color.GREEN.darker();
-        if ("Orange".equals(name)) return Color.ORANGE.darker();
-        if ("Red".equals(name)) return Color.RED.darker();
-        if ("Purple".equals(name)) return new Color(128, 0, 128);
-        if ("Black".equals(name)) return Color.BLACK;
-        return Color.BLUE;
-    }
-
     private JPanel createLane(GuiTypist t)
     {
         JPanel lane = new JPanel(new BorderLayout(4, 4));
@@ -293,31 +284,7 @@ public class TypingRaceGUI extends JFrame
         return lane;
     }
 
-    private void refreshRaceDisplay()
-    {
-        for (int i = 0; i < typists.size(); i++)
-        {
-            GuiTypist t = typists.get(i);
-            progressBars.get(i).setValue(Math.min(t.progress, passage.length()));
-            progressBars.get(i).setString(t.name + " " + t.progress + "/" + passage.length() + (t.burnoutRemaining > 0 ? " BURNT OUT" : ""));
-            passageLabels.get(i).setText(highlightedPassage(t));
-        }
-    }
-
-    private String highlightedPassage(GuiTypist t)
-    {
-        int position = Math.min(t.progress, passage.length());
-        String done = escape(passage.substring(0, position));
-        String rest = escape(passage.substring(position));
-        return "<html><span style='background:#d0ffd0;'>" + done + "</span><span>" + t.symbol + "</span>" + rest + "</html>";
-    }
-
-    private String escape(String value)
-    {
-        return value.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
-    }
-
-        private void runTurn()
+    private void runTurn()
     {
         if (!raceRunning) return;
         turn++;
@@ -385,6 +352,30 @@ public class TypingRaceGUI extends JFrame
         }
     }
 
+    private void refreshRaceDisplay()
+    {
+        for (int i = 0; i < typists.size(); i++)
+        {
+            GuiTypist t = typists.get(i);
+            progressBars.get(i).setValue(Math.min(t.progress, passage.length()));
+            progressBars.get(i).setString(t.name + " " + t.progress + "/" + passage.length() + (t.burnoutRemaining > 0 ? " BURNT OUT" : ""));
+            passageLabels.get(i).setText(highlightedPassage(t));
+        }
+    }
+
+    private String highlightedPassage(GuiTypist t)
+    {
+        int position = Math.min(t.progress, passage.length());
+        String done = escape(passage.substring(0, position));
+        String rest = escape(passage.substring(position));
+        return "<html><span style='background:#d0ffd0;'>" + done + "</span><span>" + t.symbol + "</span>" + rest + "</html>";
+    }
+
+    private String escape(String value)
+    {
+        return value.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
+    }
+
     private GuiTypist findWinner()
     {
         for (GuiTypist t : typists)
@@ -394,7 +385,7 @@ public class TypingRaceGUI extends JFrame
         return null;
     }
 
-        private void finishRace(GuiTypist winner)
+    private void finishRace(GuiTypist winner)
     {
         raceRunning = false;
         timer.stop();
@@ -472,7 +463,17 @@ public class TypingRaceGUI extends JFrame
         comparisonArea.setText(comp.toString());
     }
 
-        public static void main(String[] args)
+    private Color colourFor(String name)
+    {
+        if ("Green".equals(name)) return Color.GREEN.darker();
+        if ("Orange".equals(name)) return Color.ORANGE.darker();
+        if ("Red".equals(name)) return Color.RED.darker();
+        if ("Purple".equals(name)) return new Color(128, 0, 128);
+        if ("Black".equals(name)) return Color.BLACK;
+        return Color.BLUE;
+    }
+
+    public static void main(String[] args)
     {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() { new TypingRaceGUI().startRaceGUI(); }
