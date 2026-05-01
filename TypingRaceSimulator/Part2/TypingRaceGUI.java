@@ -276,4 +276,44 @@ public class TypingRaceGUI extends JFrame
         if ("Black".equals(name)) return Color.BLACK;
         return Color.BLUE;
     }
+
+    private JPanel createLane(GuiTypist t)
+    {
+        JPanel lane = new JPanel(new BorderLayout(4, 4));
+        lane.setBorder(BorderFactory.createLineBorder(t.colour));
+        JLabel info = new JLabel(t.symbol + " " + t.name + " | " + t.style + ", " + t.keyboard + ", " + t.accessory);
+        JProgressBar bar = new JProgressBar(0, passage.length());
+        bar.setStringPainted(true);
+        JLabel text = new JLabel(highlightedPassage(t), SwingConstants.LEFT);
+        progressBars.add(bar);
+        passageLabels.add(text);
+        lane.add(info, BorderLayout.NORTH);
+        lane.add(bar, BorderLayout.CENTER);
+        lane.add(text, BorderLayout.SOUTH);
+        return lane;
+    }
+
+    private void refreshRaceDisplay()
+    {
+        for (int i = 0; i < typists.size(); i++)
+        {
+            GuiTypist t = typists.get(i);
+            progressBars.get(i).setValue(Math.min(t.progress, passage.length()));
+            progressBars.get(i).setString(t.name + " " + t.progress + "/" + passage.length() + (t.burnoutRemaining > 0 ? " BURNT OUT" : ""));
+            passageLabels.get(i).setText(highlightedPassage(t));
+        }
+    }
+
+    private String highlightedPassage(GuiTypist t)
+    {
+        int position = Math.min(t.progress, passage.length());
+        String done = escape(passage.substring(0, position));
+        String rest = escape(passage.substring(position));
+        return "<html><span style='background:#d0ffd0;'>" + done + "</span><span>" + t.symbol + "</span>" + rest + "</html>";
+    }
+
+    private String escape(String value)
+    {
+        return value.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
+    }
 }
