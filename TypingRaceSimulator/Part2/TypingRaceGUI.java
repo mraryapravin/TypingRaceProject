@@ -316,4 +316,81 @@ public class TypingRaceGUI extends JFrame
     {
         return value.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
     }
+
+        private void runTurn()
+    {
+        if (!raceRunning) return;
+        turn++;
+        for (GuiTypist t : typists)
+        {
+            advance(t);
+        }
+        refreshRaceDisplay();
+        GuiTypist winner = findWinner();
+        if (winner != null)
+        {
+            finishRace(winner);
+        }
+    }
+
+    private void advance(GuiTypist t)
+    {
+        if (t.finished) return;
+        if (t.burnoutRemaining > 0)
+        {
+            t.burnoutRemaining--;
+            return;
+        }
+        double currentAccuracy = t.accuracy;
+        if (caffeineBox.isSelected() && turn <= 10) currentAccuracy += 0.10;
+        if (t.energyDrink && t.progress < passage.length() / 2) currentAccuracy += 0.08;
+        if (t.energyDrink && t.progress >= passage.length() / 2) currentAccuracy -= 0.06;
+        if (currentAccuracy < 0.0) currentAccuracy = 0.0;
+        if (currentAccuracy > 1.0) currentAccuracy = 1.0;
+
+        int attempts = t.speed;
+        if (caffeineBox.isSelected() && turn <= 10) attempts++;
+        for (int i = 0; i < attempts && !t.finished; i++)
+        {
+            t.keystrokes++;
+            if (Math.random() < currentAccuracy)
+            {
+                t.correctKeystrokes++;
+                t.progress++;
+                if (t.progress >= passage.length())
+                {
+                    t.finished = true;
+                    t.finishTurn = turn;
+                }
+            }
+            else
+            {
+                t.mistypes++;
+                int slide = autocorrectBox.isSelected() ? 1 : 2;
+                if (Math.random() < 0.30 - t.mistypeReduction)
+                {
+                    t.progress -= slide;
+                    if (t.progress < 0) t.progress = 0;
+                }
+            }
+        }
+        double risk = t.burnoutRisk;
+        if (caffeineBox.isSelected() && turn > 10) risk += 0.035;
+        if (Math.random() < risk)
+        {
+            t.burnoutCount++;
+            t.burnoutRemaining = t.burnoutDuration;
+            t.accuracy -= 0.01;
+            t.clampAccuracy();
+        }
+    }
+
+    private GuiTypist findWinner()
+    {
+        for (GuiTypist t : typists)
+        {
+            if (t.finished) return t;
+        }
+        return null;
+    }
 }
