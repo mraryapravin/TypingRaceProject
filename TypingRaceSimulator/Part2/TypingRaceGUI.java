@@ -479,3 +479,55 @@ public class TypingRaceGUI extends JFrame
         });
     }
 }
+
+class GuiTypist
+{
+    String name;
+    String symbol;
+    String style;
+    String keyboard;
+    String accessory;
+    Color colour;
+    int progress;
+    int speed;
+    int burnoutRemaining;
+    int burnoutDuration = 3;
+    int burnoutCount;
+    int keystrokes;
+    int correctKeystrokes;
+    int mistypes;
+    int finishTurn;
+    int points;
+    int consecutiveWins;
+    int racesWithoutBurnout;
+    int bestWpm;
+    boolean finished;
+    boolean energyDrink;
+    double accuracy;
+    double burnoutRisk;
+    double mistypeReduction;
+
+    void clampAccuracy()
+    {
+        if (accuracy < 0.0) accuracy = 0.0;
+        if (accuracy > 1.0) accuracy = 1.0;
+    }
+}
+
+class RaceResult
+{
+    String typistName;
+    int position;
+    int wpm;
+    double accuracyPercentage;
+    int burnouts;
+
+    RaceResult(String typistName, int position, int wpm, double accuracyPercentage, int burnouts)
+    {
+        this.typistName = typistName;
+        this.position = position;
+        this.wpm = wpm;
+        this.accuracyPercentage = accuracyPercentage;
+        this.burnouts = burnouts;
+    }
+}
