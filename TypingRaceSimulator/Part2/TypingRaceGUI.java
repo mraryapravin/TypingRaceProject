@@ -143,4 +143,43 @@ public class TypingRaceGUI extends JFrame
         panel.add(start, BorderLayout.SOUTH);
         return panel;
     }
+
+        @SuppressWarnings("unchecked")
+    private JPanel buildTypistOptions()
+    {
+        JPanel panel = new JPanel(new GridLayout(6, 1, 4, 4));
+        styleBoxes = new JComboBox[6];
+        keyboardBoxes = new JComboBox[6];
+        accessoryBoxes = new JComboBox[6];
+        nameFields = new JTextField[6];
+        symbolFields = new JTextField[6];
+        colourBoxes = new JComboBox[6];
+
+        String[] styles = {"Touch Typist", "Hunt & Peck", "Phone Thumbs", "Voice-to-Text"};
+        String[] keyboards = {"Mechanical", "Membrane", "Touchscreen", "Stenography"};
+        String[] accessories = {"None", "Wrist Support", "Energy Drink", "Noise-Cancelling Headphones"};
+        String[] colours = {"Blue", "Green", "Orange", "Red", "Purple", "Black"};
+        String[] defaultSymbols = {"①", "②", "③", "④", "⑤", "⑥"};
+
+        for (int i = 0; i < 6; i++)
+        {
+            JPanel row = new JPanel(new GridLayout(0, 1));
+            row.setBorder(BorderFactory.createTitledBorder("Typist " + (i + 1)));
+            nameFields[i] = new JTextField("Typist_" + (i + 1));
+            symbolFields[i] = new JTextField(defaultSymbols[i]);
+            styleBoxes[i] = new JComboBox<String>(styles);
+            keyboardBoxes[i] = new JComboBox<String>(keyboards);
+            accessoryBoxes[i] = new JComboBox<String>(accessories);
+            colourBoxes[i] = new JComboBox<String>(colours);
+            colourBoxes[i].setSelectedIndex(i);
+            row.add(nameFields[i]);
+            row.add(symbolFields[i]);
+            row.add(styleBoxes[i]);
+            row.add(keyboardBoxes[i]);
+            row.add(accessoryBoxes[i]);
+            row.add(colourBoxes[i]);
+            panel.add(row);
+        }
+        return panel;
+    }
 }
