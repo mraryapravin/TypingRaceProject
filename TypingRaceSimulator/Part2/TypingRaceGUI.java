@@ -393,4 +393,82 @@ public class TypingRaceGUI extends JFrame
         }
         return null;
     }
+
+        private void finishRace(GuiTypist winner)
+    {
+        raceRunning = false;
+        timer.stop();
+        int position = 1;
+        ArrayList<GuiTypist> ordered = new ArrayList<GuiTypist>(typists);
+        Collections.sort(ordered, new Comparator<GuiTypist>() {
+            public int compare(GuiTypist a, GuiTypist b) { return b.progress - a.progress; }
+        });
+        for (GuiTypist t : ordered)
+        {
+            int points = Math.max(0, 7 - position * 2);
+            points += calculateWpm(t) >= 35 ? 2 : 0;
+            points -= t.burnoutCount;
+            if (points < 0) points = 0;
+            t.points += points;
+            t.consecutiveWins = t == winner ? t.consecutiveWins + 1 : 0;
+            t.racesWithoutBurnout = t.burnoutCount == 0 ? t.racesWithoutBurnout + 1 : 0;
+            t.bestWpm = Math.max(t.bestWpm, calculateWpm(t));
+            history.add(new RaceResult(t.name, position, calculateWpm(t), accuracyPercentage(t), t.burnoutCount));
+            position++;
+        }
+        winner.accuracy += 0.02;
+        winner.clampAccuracy();
+        updateAnalyticsText("Winner: " + winner.name);
+    }
+
+    private int calculateWpm(GuiTypist t)
+    {
+        int turnsTaken = t.finishTurn > 0 ? t.finishTurn : turn;
+        double minutes = Math.max(1.0, turnsTaken) * 0.18 / 60.0;
+        double words = passage.length() / 5.0;
+        return (int) Math.round(words / minutes);
+    }
+
+    private double accuracyPercentage(GuiTypist t)
+    {
+        if (t.keystrokes == 0) return 0.0;
+        return (100.0 * t.correctKeystrokes) / t.keystrokes;
+    }
+
+    private void updateAnalyticsText(String heading)
+    {
+        StringBuilder stats = new StringBuilder(heading + "\n\n");
+        for (GuiTypist t : typists)
+        {
+            stats.append(t.name).append("\n")
+                .append("WPM: ").append(calculateWpm(t)).append("\n")
+                .append("Accuracy %: ").append(String.format("%.1f", accuracyPercentage(t))).append("\n")
+                .append("Burnouts: ").append(t.burnoutCount).append("\n")
+                .append("Rating now: ").append(String.format("%.2f", t.accuracy)).append("\n")
+                .append("Personal best WPM: ").append(t.bestWpm).append("\n\n");
+        }
+        statsArea.setText(stats.toString());
+
+        ArrayList<GuiTypist> board = new ArrayList<GuiTypist>(typists);
+        Collections.sort(board, new Comparator<GuiTypist>() {
+            public int compare(GuiTypist a, GuiTypist b) { return b.points - a.points; }
+        });
+        StringBuilder leaders = new StringBuilder();
+        for (GuiTypist t : board)
+        {
+            leaders.append(t.name).append(" - ").append(t.points).append(" pts");
+            if (t.consecutiveWins >= 3) leaders.append(" | Speed Demon");
+            if (t.racesWithoutBurnout >= 5) leaders.append(" | Iron Fingers");
+            leaders.append("\n");
+        }
+        leaderboardArea.setText(leaders.toString());
+
+        StringBuilder comp = new StringBuilder("Side-by-side WPM comparison\n");
+        for (GuiTypist t : typists)
+        {
+            comp.append(t.name).append(": ").append(calculateWpm(t)).append(" WPM, ")
+                .append(String.format("%.1f", accuracyPercentage(t))).append("% accurate\n");
+        }
+        comparisonArea.setText(comp.toString());
+    }
 }
