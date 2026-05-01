@@ -471,4 +471,11 @@ public class TypingRaceGUI extends JFrame
         }
         comparisonArea.setText(comp.toString());
     }
+
+        public static void main(String[] args)
+    {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() { new TypingRaceGUI().startRaceGUI(); }
+        });
+    }
 }
